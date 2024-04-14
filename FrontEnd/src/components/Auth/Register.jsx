@@ -2,7 +2,7 @@
 import { useContext, useState } from "react";
 import { Context } from "../../main";
 import axios from "axios";
-import BASE_URL from "../../configuration.js";
+// import BASE_URL from "../../configuration.js";
 import toast from "react-hot-toast";
 import { Link, Navigate } from "react-router-dom";
 import { FaPencilAlt, FaRegUser } from "react-icons/fa";

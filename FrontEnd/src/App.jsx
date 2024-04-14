@@ -17,7 +17,7 @@ import "./App.css";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import BASE_URL from "./configuration";
+// import BASE_URL from "./configuration";
 
 function App() {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
@@ -25,9 +25,12 @@ function App() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/api/v1/user/getuser`, {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "https://fine-puce-coveralls.cyclic.app/api/v1/user/getuser",
+          {
+            withCredentials: true,
+          }
+        );
         setUser(response.data.user);
         setIsAuthorized(true);
       } catch (err) {
