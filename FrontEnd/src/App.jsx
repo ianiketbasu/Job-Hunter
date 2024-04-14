@@ -31,6 +31,7 @@ function App() {
             withCredentials: true,
           }
         );
+
         setUser(response.data.user);
         setIsAuthorized(true);
       } catch (err) {
@@ -39,7 +40,7 @@ function App() {
       }
     };
     fetchUser();
-  }, [isAuthorized]);
+  }, [isAuthorized, setIsAuthorized, setUser]);
 
   return (
     <>
