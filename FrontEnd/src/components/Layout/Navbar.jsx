@@ -14,7 +14,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/v1/user/logout",
+        "https://fine-puce-coveralls.cyclic.app/api/v1/user/logout",
         {
           withCredentials: true,
         }

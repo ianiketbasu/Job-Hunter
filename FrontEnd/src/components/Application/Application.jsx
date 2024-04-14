@@ -37,7 +37,7 @@ function Application() {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/api/v1/application/jobseeker/post",
+        "https://fine-puce-coveralls.cyclic.app/api/v1/application/jobseeker/post",
         formData,
         {
           withCredentials: true,

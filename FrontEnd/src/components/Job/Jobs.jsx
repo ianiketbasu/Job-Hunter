@@ -12,7 +12,7 @@ function Jobs() {
   useEffect(() => {
     try {
       axios
-        .get("http://localhost:3000/api/v1/job/getall", {
+        .get("https://fine-puce-coveralls.cyclic.app/api/v1/job/getall", {
           withCredentials: true,
         })
         .then((res) => {

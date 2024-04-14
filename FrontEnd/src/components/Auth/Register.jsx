@@ -23,7 +23,7 @@ function Register() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/api/v1/user/register",
+        "https://fine-puce-coveralls.cyclic.app/api/v1/user/register",
         { name, phone, email, role, password },
         {
           headers: {

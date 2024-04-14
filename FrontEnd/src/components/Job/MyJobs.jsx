@@ -18,7 +18,7 @@ function MyJobs() {
     const fetchJobs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:3000/api/v1/job/myjobs",
+          "https://fine-puce-coveralls.cyclic.app/api/v1/job/myjobs",
           { withCredentials: true }
         );
         setMyJobs(data.myjobs);
@@ -49,7 +49,7 @@ function MyJobs() {
   const handleUpdateJob = async (jobId) => {
     const updatedJob = myJobs.find((job) => job._id === jobId);
     await axios
-      .put(`http://localhost:3000/api/v1/job/updatejob/${jobId}`, updatedJob, {
+      .put(`https://fine-puce-coveralls.cyclic.app/api/v1/job/updatejob/${jobId}`, updatedJob, {
         withCredentials: true,
       })
       .then((res) => {
@@ -63,7 +63,7 @@ function MyJobs() {
 
   const handleJobDelete = async (jobId) => {
     await axios
-      .delete(`http://localhost:3000/api/v1/job/deletejob/${jobId}`, {
+      .delete(`https://fine-puce-coveralls.cyclic.app/api/v1/job/deletejob/${jobId}`, {
         withCredentials: true,
       })
       .then((res) => {
