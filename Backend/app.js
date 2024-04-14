@@ -12,13 +12,20 @@ import { errorMiddleWare } from "./middlewares/error.js";
 const app = express();
 dotenv.config({ path: "./config/config.env" });
 
-app.use(
-  cors({
-    origin: [process.env.FRONT_END_URL],
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true,
-  })
-);
+const allowedOrigins = [process.env.FRONT_END_URL, 'http://localhost:3000']; // Example
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'DELETE', 'PUT'],
+  credentials: true
+}));
+
 // console.log(process.env.FRONT_END_URL);
 
 app.use(cookieParser());
