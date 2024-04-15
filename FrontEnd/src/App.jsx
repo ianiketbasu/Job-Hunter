@@ -43,25 +43,23 @@ function App() {
   }, [isAuthorized, setIsAuthorized, setUser]);
 
   return (
-    <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/job/getall" element={<Jobs />} />
-          <Route path="/job/:id" element={<JobDetails />} />
-          <Route path="/job/post" element={<PostJob />} />
-          <Route path="/job/me" element={<MyJobs />} />
-          <Route path="/application/:id" element={<Application />} />
-          <Route path="/applications/me" element={<MyApplication />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-        <Toaster />
-      </Router>
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/job/getall" element={<Jobs />} />
+        <Route path="/job/:id" element={<JobDetails />} />
+        <Route path="/job/post" element={<PostJob />} />
+        <Route path="/job/me" element={<MyJobs />} />
+        <Route path="/application/:id" element={<Application />} />
+        <Route path="/applications/me" element={<MyApplication />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+      <Toaster />
+    </Router>
   );
 }
 
