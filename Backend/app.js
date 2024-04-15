@@ -14,7 +14,10 @@ dotenv.config({ path: "./config/config.env" });
 
 app.use(
   cors({
-    origin: [process.env.FRONT_END_URL],
+    origin: [
+      process.env.FRONT_END_URL,
+      "https://661d6be1c349fa15e32b77ed--sparkling-beignet-094a40.netlify.app",
+    ],
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
