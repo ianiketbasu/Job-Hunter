@@ -12,19 +12,24 @@ import { errorMiddleWare } from "./middlewares/error.js";
 const app = express();
 dotenv.config({ path: "./config/config.env" });
 
-const allowedOrigins = [process.env.FRONT_END_URL, 'http://localhost:3000']; // Example
+const allowedOrigins = [
+  "https://job-hunter-black.vercel.app",
+  "http://localhost:3000",
+]; // Example
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['GET', 'POST', 'DELETE', 'PUT'],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    credentials: true,
+  })
+);
 
 // console.log(process.env.FRONT_END_URL);
 
