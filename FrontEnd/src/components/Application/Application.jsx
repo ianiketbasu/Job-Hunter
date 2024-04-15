@@ -4,6 +4,7 @@ import { Context } from "../../main";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
+import BASE_URL from "../../configuration.js";
 
 function Application() {
   const [name, setName] = useState("");
@@ -37,7 +38,7 @@ function Application() {
 
     try {
       const { data } = await axios.post(
-        "https://fine-puce-coveralls.cyclic.app/api/v1/application/jobseeker/post",
+        `${BASE_URL}/api/v1/application/jobseeker/post`,
         formData,
         {
           withCredentials: true,

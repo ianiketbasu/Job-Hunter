@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../main";
+import BASE_URL from "../../configuration.js";
 
 function PostJob() {
   const [title, setTitle] = useState("");
@@ -33,7 +34,7 @@ function PostJob() {
     }
     await axios
       .post(
-        "https://fine-puce-coveralls.cyclic.app/api/v1/job/post",
+        `${BASE_URL}/api/v1/job/post`,
         fixedSalary.length >= 4
           ? {
               title,

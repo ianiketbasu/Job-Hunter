@@ -7,6 +7,7 @@ import { FaRegUser } from "react-icons/fa";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../../main";
+import BASE_URL from "../../configuration.js";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://fine-puce-coveralls.cyclic.app/api/v1/user/login",
+        `${BASE_URL}/api/v1/user/login`,
         { email, password, role },
         {
           headers: {
@@ -38,7 +39,7 @@ const Login = () => {
     }
   };
 
-  console.log("isAuthorized ", isAuthorized);
+  // console.log("isAuthorized ", isAuthorized);
 
   if (isAuthorized) {
     return <Navigate to={"/"} />;

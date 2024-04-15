@@ -2,7 +2,7 @@
 import { useContext, useState } from "react";
 import { Context } from "../../main";
 import axios from "axios";
-// import BASE_URL from "../../configuration.js";
+import BASE_URL from "../../configuration.js";
 import toast from "react-hot-toast";
 import { Link, Navigate } from "react-router-dom";
 import { FaPencilAlt, FaRegUser } from "react-icons/fa";
@@ -23,7 +23,7 @@ function Register() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://fine-puce-coveralls.cyclic.app/api/v1/user/register",
+        `${BASE_URL}/api/v1/user/register`,
         { name, phone, email, role, password },
         {
           headers: {

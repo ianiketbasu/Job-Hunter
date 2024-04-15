@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../../main";
 import axios from "axios";
+import BASE_URL from "../../configuration.js";
 
 function JobDetails() {
   const { id } = useParams();
@@ -13,7 +14,7 @@ function JobDetails() {
 
   useEffect(() => {
     axios
-      .get(`https://fine-puce-coveralls.cyclic.app/api/v1/job/${id}`, {
+      .get(`${BASE_URL}/api/v1/job/${id}`, {
         withCredentials: true,
       })
       .then((res) => {

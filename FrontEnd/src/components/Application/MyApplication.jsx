@@ -5,6 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import ResumeModal from "./ResumeModal";
+import BASE_URL from "../../configuration.js";
 
 const MyApplications = () => {
   const { user } = useContext(Context);
@@ -19,7 +20,7 @@ const MyApplications = () => {
     try {
       if (user && user.role === "Employer") {
         axios
-          .get("https://fine-puce-coveralls.cyclic.app/api/v1/application/employer/getall", {
+          .get(`${BASE_URL}/api/v1/application/employer/getall`, {
             withCredentials: true,
           })
           .then((res) => {
@@ -27,7 +28,7 @@ const MyApplications = () => {
           });
       } else {
         axios
-          .get("https://fine-puce-coveralls.cyclic.app/api/v1/application/jobseeker/getall", {
+          .get(`${BASE_URL}/api/v1/application/jobseeker/getall`, {
             withCredentials: true,
           })
           .then((res) => {
@@ -46,7 +47,7 @@ const MyApplications = () => {
   const deleteApplication = (id) => {
     try {
       axios
-        .delete(`https://fine-puce-coveralls.cyclic.app/api/v1/application/deleteapplication/${id}`, {
+        .delete(`${BASE_URL}/api/v1/application/deleteapplication/${id}`, {
           withCredentials: true,
         })
         .then((res) => {

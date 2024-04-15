@@ -14,7 +14,7 @@ dotenv.config({ path: "./config/config.env" });
 
 app.use(
   cors({
-    origin: ["https://job-hunter-black.vercel.ap"],
+    origin: [process.env.FRONT_END_URL],
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })

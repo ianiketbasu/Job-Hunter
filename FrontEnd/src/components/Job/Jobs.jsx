@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { Context } from "../../main";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import BASE_URL from "../../configuration.js";
 
 function Jobs() {
   const [jobs, setJobs] = useState([]);
@@ -12,7 +13,7 @@ function Jobs() {
   useEffect(() => {
     try {
       axios
-        .get("https://fine-puce-coveralls.cyclic.app/api/v1/job/getall", {
+        .get(`${BASE_URL}/api/v1/job/getall`, {
           withCredentials: true,
         })
         .then((res) => {

@@ -6,6 +6,7 @@ import { FaCheck } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { Context } from "../../main";
 import { useNavigate } from "react-router-dom";
+import BASE_URL from "../../configuration.js";
 
 function MyJobs() {
   const [myJobs, setMyJobs] = useState([]);
@@ -17,10 +18,9 @@ function MyJobs() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const { data } = await axios.get(
-          "https://fine-puce-coveralls.cyclic.app/api/v1/job/myjobs",
-          { withCredentials: true }
-        );
+        const { data } = await axios.get(`${BASE_URL}/api/v1/job/myjobs`, {
+          withCredentials: true,
+        });
         setMyJobs(data.myjobs);
       } catch (error) {
         toast.error(error.response.data.message);
@@ -49,7 +49,7 @@ function MyJobs() {
   const handleUpdateJob = async (jobId) => {
     const updatedJob = myJobs.find((job) => job._id === jobId);
     await axios
-      .put(`https://fine-puce-coveralls.cyclic.app/api/v1/job/updatejob/${jobId}`, updatedJob, {
+      .put(`${BASE_URL}/api/v1/job/updatejob/${jobId}`, updatedJob, {
         withCredentials: true,
       })
       .then((res) => {
@@ -63,7 +63,7 @@ function MyJobs() {
 
   const handleJobDelete = async (jobId) => {
     await axios
-      .delete(`https://fine-puce-coveralls.cyclic.app/api/v1/job/deletejob/${jobId}`, {
+      .delete(`${BASE_URL}/api/v1/job/deletejob/${jobId}`, {
         withCredentials: true,
       })
       .then((res) => {
