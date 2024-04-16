@@ -21,7 +21,6 @@ import BASE_URL from "./configuration";
 
 function App() {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
-  // console.log("BASE_URL", BASE_URL);
   useEffect(() => {
     const fetchUser = async () => {
       try {
