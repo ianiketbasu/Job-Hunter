@@ -14,16 +14,13 @@ dotenv.config({ path: "./config/config.env" });
 
 app.use(
   cors({
-    origin: [
-      process.env.FRONT_END_URL,
-      "https://661d6be1c349fa15e32b77ed--sparkling-beignet-094a40.netlify.app",
-    ],
+    origin: [process.env.FRONT_END_URL],
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
 );
 
-// console.log(process.env.FRONT_END_URL);
+console.log("front end url", process.env.FRONT_END_URL);
 
 app.use(cookieParser());
 app.use(express.json());
